@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Limpieza Total · Hogar impecable</title>
-  <!-- Google Fonts para un look limpio y amable -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -21,9 +20,9 @@
       color: #2c3e4e;
       line-height: 1.6;
       scroll-behavior: smooth;
+      transition: background-color 0.3s, color 0.3s;
     }
 
-    /* Contenedor general */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -61,6 +60,7 @@
       display: flex;
       gap: 2.2rem;
       list-style: none;
+      align-items: center;
     }
     .nav-links a {
       text-decoration: none;
@@ -104,6 +104,29 @@
       box-shadow: 0 10px 20px rgba(37, 211, 102, 0.35);
     }
 
+    /* Botón modo oscuro */
+    .dark-mode-toggle {
+      background: transparent;
+      border: 2px solid #cbd5e1;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      color: #2c3e4e;
+      line-height: 1;
+      padding: 0;
+      margin-left: 0.8rem;
+    }
+    .dark-mode-toggle:hover {
+      background: #eef2f6;
+      border-color: #3b82c4;
+    }
+
     /* ===== HERO ===== */
     .hero {
       padding: 10rem 0 6rem;
@@ -111,6 +134,7 @@
       display: flex;
       align-items: center;
       min-height: 90vh;
+      transition: background 0.3s;
     }
     .hero-content {
       display: flex;
@@ -171,13 +195,6 @@
       display: flex;
       justify-content: center;
     }
-    .hero-image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 30px;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.08);
-    }
-    /* Imagen placeholder decorativa */
     .hero-illustration {
       width: 100%;
       max-width: 500px;
@@ -190,6 +207,7 @@
     /* ===== SECCIONES GENERALES ===== */
     .section {
       padding: 5rem 0;
+      transition: background 0.3s;
     }
     .section-title {
       text-align: center;
@@ -214,7 +232,6 @@
       margin: 1rem auto 0;
     }
 
-    /* Servicios */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -226,7 +243,7 @@
       border-radius: 24px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
       border: 1px solid rgba(0,0,0,0.02);
     }
     .service-card:hover {
@@ -249,7 +266,6 @@
       font-size: 0.95rem;
     }
 
-    /* Por qué elegirnos */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -289,9 +305,9 @@
       font-size: 0.9rem;
     }
 
-    /* Testimonios */
     .testimonials {
       background: #f3f9ff;
+      transition: background 0.3s;
     }
     .testimonial-carousel {
       max-width: 700px;
@@ -354,7 +370,6 @@
       background: #3b82c4;
     }
 
-    /* Contacto */
     .contact-wrapper {
       display: flex;
       gap: 3rem;
@@ -381,6 +396,7 @@
       padding: 2rem;
       border-radius: 24px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+      transition: background 0.3s;
     }
     .form-group {
       margin-bottom: 1.2rem;
@@ -393,8 +409,9 @@
       border-radius: 14px;
       font-family: 'Nunito', sans-serif;
       font-size: 1rem;
-      transition: border 0.2s;
+      transition: border 0.2s, background 0.3s, color 0.3s;
       outline: none;
+      background: white;
     }
     .form-group input:focus,
     .form-group textarea:focus {
@@ -417,7 +434,6 @@
       box-shadow: 0 10px 20px rgba(46, 204, 113, 0.3);
     }
 
-    /* Footer */
     .footer {
       background: #1e2b37;
       color: #b0c4d9;
@@ -432,7 +448,6 @@
       font-weight: 700;
     }
 
-    /* Botón flotante WhatsApp */
     .whatsapp-float {
       position: fixed;
       bottom: 2rem;
@@ -456,7 +471,6 @@
       box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55);
     }
 
-    /* Animaciones con scroll */
     .fade-up {
       opacity: 0;
       transform: translateY(30px);
@@ -465,6 +479,116 @@
     .fade-up.visible {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    /* ========== MODO OSCURO ========== */
+    body.dark-mode {
+      background-color: #121826;
+      color: #e0e0e0;
+    }
+    body.dark-mode .navbar {
+      background: rgba(18, 24, 38, 0.9);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+    }
+    body.dark-mode .logo {
+      color: #5dade2;
+    }
+    body.dark-mode .nav-links a {
+      color: #d0d0d0;
+    }
+    body.dark-mode .nav-links a:hover {
+      color: #2ecc71;
+    }
+    body.dark-mode .dark-mode-toggle {
+      border-color: #4a5568;
+      color: #e0e0e0;
+    }
+    body.dark-mode .dark-mode-toggle:hover {
+      background: #2a3242;
+    }
+    body.dark-mode .hero {
+      background: linear-gradient(135deg, #1a2332 0%, #1a2e24 100%);
+    }
+    body.dark-mode .hero-text h1 {
+      color: #f0f0f0;
+    }
+    body.dark-mode .hero-text p {
+      color: #b0b0b0;
+    }
+    body.dark-mode .section-title h2 {
+      color: #f0f0f0;
+    }
+    body.dark-mode .section-title p {
+      color: #b0b0b0;
+    }
+    body.dark-mode .service-card {
+      background: #1e2a38;
+      border-color: rgba(255,255,255,0.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    body.dark-mode .service-card h3 {
+      color: #f0f0f0;
+    }
+    body.dark-mode .service-card p {
+      color: #b0b0b0;
+    }
+    body.dark-mode .feature-item {
+      background: #1e2a38;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+    body.dark-mode .feature-item:hover {
+      background: #263040;
+    }
+    body.dark-mode .feature-icon {
+      background: #2a3b4e;
+      color: #5dade2;
+    }
+    body.dark-mode .feature-text h4 {
+      color: #f0f0f0;
+    }
+    body.dark-mode .feature-text p {
+      color: #b0b0b0;
+    }
+    body.dark-mode .testimonials {
+      background: #1a2332;
+    }
+    body.dark-mode .testimonial-text {
+      color: #d0d0d0;
+    }
+    body.dark-mode .testimonial-author {
+      color: #f0f0f0;
+    }
+    body.dark-mode .testimonial-role {
+      color: #9ca3af;
+    }
+    body.dark-mode .carousel-dots .dot {
+      background: #4a5568;
+    }
+    body.dark-mode .carousel-dots .dot.active {
+      background: #3b82c4;
+    }
+    body.dark-mode .contact-form {
+      background: #1e2a38;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    }
+    body.dark-mode .contact-info h3 {
+      color: #f0f0f0;
+    }
+    body.dark-mode .form-group input,
+    body.dark-mode .form-group textarea {
+      background: #2a3344;
+      border-color: #3a4458;
+      color: #e0e0e0;
+    }
+    body.dark-mode .form-group input:focus,
+    body.dark-mode .form-group textarea:focus {
+      border-color: #3b82c4;
+    }
+    body.dark-mode .footer {
+      background: #0d1117;
+    }
+    body.dark-mode .btn-whatsapp {
+      background: #25D366;
     }
 
     @media (max-width: 768px) {
@@ -487,7 +611,6 @@
   </style>
 </head>
 <body>
-  <!-- Barra de navegación -->
   <nav class="navbar">
     <div class="container">
       <div class="logo">✨ Limpieza<span>Total</span></div>
@@ -497,11 +620,13 @@
         <li><a href="#nosotros">Nosotros</a></li>
         <li><a href="#testimonios">Opiniones</a></li>
         <li><a href="#contacto" class="btn-whatsapp">📱 Cotizar</a></li>
+        <li>
+          <button id="darkModeToggle" class="dark-mode-toggle" title="Cambiar modo oscuro">🌙</button>
+        </li>
       </ul>
     </div>
   </nav>
 
-  <!-- Hero -->
   <section id="inicio" class="hero">
     <div class="container hero-content">
       <div class="hero-text fade-up">
@@ -515,7 +640,6 @@
     </div>
   </section>
 
-  <!-- Servicios -->
   <section id="servicios" class="section container">
     <div class="section-title fade-up">
       <h2>Nuestros servicios</h2>
@@ -546,7 +670,6 @@
     </div>
   </section>
 
-  <!-- Por qué elegirnos -->
   <section id="nosotros" class="section" style="background: #ffffff;">
     <div class="container">
       <div class="section-title fade-up">
@@ -586,7 +709,6 @@
     </div>
   </section>
 
-  <!-- Testimonios -->
   <section id="testimonios" class="section testimonials">
     <div class="container">
       <div class="section-title fade-up">
@@ -618,7 +740,6 @@
     </div>
   </section>
 
-  <!-- Contacto -->
   <section id="contacto" class="section container">
     <div class="section-title fade-up">
       <h2>Solicita tu presupuesto</h2>
@@ -663,11 +784,33 @@
     </div>
   </footer>
 
-  <!-- Botón flotante de WhatsApp -->
   <a href="https://wa.me/593991234567" class="whatsapp-float" target="_blank" title="Chatea con nosotros">💬</a>
 
   <script>
-    // Animación al hacer scroll (fade-up)
+    // Modo oscuro
+    const toggleBtn = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    // Cargar preferencia guardada
+    if (localStorage.getItem('dark-mode') === 'enabled') {
+      body.classList.add('dark-mode');
+      toggleBtn.textContent = '☀️';
+    } else {
+      toggleBtn.textContent = '🌙';
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('dark-mode', 'enabled');
+        toggleBtn.textContent = '☀️';
+      } else {
+        localStorage.setItem('dark-mode', 'disabled');
+        toggleBtn.textContent = '🌙';
+      }
+    });
+
+    // Animación fade-up al hacer scroll
     const faders = document.querySelectorAll('.fade-up');
     const appearOptions = {
       threshold: 0.15,
@@ -682,7 +825,7 @@
     }, appearOptions);
     faders.forEach(fader => appearOnScroll.observe(fader));
 
-    // Carrusel de testimonios sencillo
+    // Carrusel de testimonios
     const slides = document.querySelectorAll('.testimonial-slide');
     const dots = document.querySelectorAll('.dot');
     let currentSlide = 0;
@@ -703,13 +846,12 @@
       });
     });
 
-    // Auto rotación cada 5 segundos
     setInterval(() => {
       let next = (currentSlide + 1) % totalSlides;
       showSlide(next);
     }, 5000);
 
-    // Smooth scroll para enlaces internos
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
