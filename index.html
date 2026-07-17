@@ -632,6 +632,11 @@
       background: #25D366;
     }
 
+    /* Fondo oscuro para la sección "¿Por qué elegirnos?" */
+    body.dark-mode #nosotros {
+      background-color: #1a2332;
+    }
+
     /* ========== RESPONSIVE ========== */
     @media (max-width: 992px) {
       .hero-text h1 {
@@ -864,7 +869,8 @@
     </div>
   </section>
 
-  <section id="nosotros" class="sectionContainer" style="background: #ffffff;">
+  <!-- SECCIÓN CORREGIDA: clase "section" y sin fondo fijo -->
+  <section id="nosotros" class="section">
     <div class="container">
       <div class="section-title fade-up">
         <h2>¿Por qué elegirnos?</h2>
