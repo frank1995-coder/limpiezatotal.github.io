@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       try {
         // ¡CAMBIA ESTE CORREO POR EL TUYO REAL!
-        const response = await fetch("https://formsubmit.co/ajax/frank1995alfredo@gmail.com", {
+        const response = await fetch("https://formsubmit.co/ajax/4a5a943aed6b11fe2ac30369dde8dbe0", {
           method: "POST",
           body: formData,
           headers: {
