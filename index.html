@@ -367,27 +367,39 @@
             </div>
           </div>
         </div>
-        <form class="contact-form fade-up" action="#" method="post" id="contactForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Nombre</label>
-              <input type="text" placeholder="Tu nombre" required />
-            </div>
-            <div class="form-group">
-              <label>Teléfono</label>
-              <input type="tel" placeholder="+593..." required />
-            </div>
+     <form class="contact-form fade-up" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" name="nombre" placeholder="Tu nombre" required />
           </div>
           <div class="form-group">
-            <label>Tipo de servicio</label>
-            <input type="text" placeholder="Ej: Limpieza profunda" />
+            <label>Teléfono</label>
+            <input type="tel" name="telefono" placeholder="+593..." required />
           </div>
-          <div class="form-group">
-            <label>Cuéntanos qué necesitas</label>
-            <textarea rows="4" placeholder="Tamaño del hogar, frecuencia deseada, etc."></textarea>
-          </div>
-          <button type="submit" class="btn-submit magnetic-btn">Enviar solicitud →</button>
-        </form>
+        </div>
+        
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input type="email" name="email" placeholder="tucorreo@ejemplo.com" required />
+        </div>
+        
+        <div class="form-group">
+          <label>Tipo de servicio</label>
+          <input type="text" name="servicio" placeholder="Ej: Limpieza profunda" />
+        </div>
+        
+        <div class="form-group">
+          <label>Cuéntanos qué necesitas</label>
+          <textarea name="mensaje" rows="4" placeholder="Tamaño del hogar, frecuencia deseada, etc." required></textarea>
+        </div>
+        
+        <!-- Campos ocultos para configurar FormSubmit -->
+        <input type="hidden" name="_subject" value="Nueva solicitud de limpieza - Limpieza Total">
+        <input type="hidden" name="_captcha" value="false">
+
+        <button type="submit" class="btn-submit magnetic-btn">Enviar solicitud →</button>
+      </form>
       </div>
     </div>
   </section>

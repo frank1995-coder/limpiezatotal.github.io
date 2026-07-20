@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
   // ===== 6. FORMULARIO DE CONTACTO (ENVÍO REAL POR EMAIL) =====
-  const contactForm = document.getElementById('contactForm');
+    const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -187,16 +187,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const btn = e.target.querySelector('.btn-submit');
       const originalText = btn.textContent;
       
-      // Estado de carga
       btn.textContent = 'Enviando...';
       btn.disabled = true;
       btn.style.opacity = '0.7';
 
-      // Recopilar datos del formulario
+      // Esto es lo que captura los campos con atributo "name"
       const formData = new FormData(e.target);
 
       try {
-        // ¡CAMBIA ESTE CORREO POR EL TUYO REAL!
+        // Asegúrate de que aquí esté tu código hash de activación
         const response = await fetch("https://formsubmit.co/ajax/4a5a943aed6b11fe2ac30369dde8dbe0", {
           method: "POST",
           body: formData,
@@ -206,31 +205,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (response.ok) {
-          // Éxito
           btn.textContent = '✓ Enviado correctamente';
           btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
           btn.style.opacity = '1';
-          e.target.reset(); // Limpiar formulario
+          e.target.reset(); // Limpia el formulario
           
           setTimeout(() => {
             btn.textContent = originalText;
             btn.style.background = '';
             btn.disabled = false;
           }, 3000);
-        } else {
-          throw new Error('Error en el envío');
         }
       } catch (error) {
-        // Error
-        btn.textContent = '✗ Error al enviar. Intenta de nuevo.';
-        btn.style.background = '#ef4444'; // Rojo de error
+        btn.textContent = '✗ Error al enviar';
+        btn.disabled = false;
         btn.style.opacity = '1';
-        
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.background = '';
-          btn.disabled = false;
-        }, 3000);
       }
     });
   }
