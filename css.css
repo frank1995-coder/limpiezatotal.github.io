@@ -1228,3 +1228,188 @@ body.dark-mode .btn-secondary:hover {
   .pricing-grid { grid-template-columns: 1fr; }
   .contact-info-card, .contact-form { padding: 2rem 1.5rem; }
 }
+
+/* ===== EFECTOS REACT BITS ===== */
+
+/* 1. Ambient Glow en el Hero */
+.ambient-glow {
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: ambientPulse 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes ambientPulse {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.1); opacity: 0.9; }
+}
+
+/* 2. Spotlight Effect (Linterna que sigue al mouse) */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(16, 185, 129, 0.08),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+body.dark-mode .spotlight-card::before {
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(16, 185, 129, 0.15),
+    transparent 40%
+  );
+}
+
+/* 3. Botones Magnéticos */
+.magnetic-btn {
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform;
+}
+
+/* 4. Nueva Sección de Garantía */
+.guarantee-section {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, #eef5fb 0%, #f7f9fc 100%);
+}
+body.dark-mode .guarantee-section {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+}
+
+.guarantee-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.guarantee-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  transition: all 0.3s ease;
+}
+body.dark-mode .guarantee-item {
+  background: #1e293b;
+  border-color: rgba(255,255,255,0.05);
+}
+
+.guarantee-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+.g-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.guarantee-item h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+body.dark-mode .guarantee-item h4 { color: white; }
+
+.guarantee-item p {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+/* 5. Mejora en animaciones Fade Up */
+.fade-up {
+  opacity: 0; 
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.fade-up.visible { 
+  opacity: 1; 
+  transform: translateY(0); 
+}
+
+/* Ajustes Dark Mode para Garantía */
+body.dark-mode .guarantee-section {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+}
+
+
+/* ===== NUEVOS EFECTOS REACT BITS ===== */
+
+/* 1. Aparición Escalonada (Stagger) */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+
+/* 2. Efecto Tilt 3D */
+.tilt-card {
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  will-change: transform;
+}
+
+/* 3. Efecto Shimmer (Brillo deslizante en tarjeta destacada) */
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  animation: shimmer 4s infinite;
+}
+@keyframes shimmer {
+  0% { left: -100%; }
+  20% { left: 200%; }
+  100% { left: 200%; }
+}
+body.dark-mode .shimmer-effect::after {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* 4. Parallax suave para la imagen del hero */
+.parallax-img {
+  will-change: transform;
+}
